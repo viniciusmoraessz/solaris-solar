@@ -18,6 +18,15 @@
     @media (max-width: 850px) { .trust { margin-top: 24px; } }
     .hero h1 { max-width: 700px; font-weight: 800; }
     .hero p { font-size: 1.06rem; max-width: 500px; }
+    header { position:sticky; top:0; z-index:40; padding:12px 0; background:linear-gradient(105deg,#0b2a46 0%,#1e658f 52%,#9ac4cf 100%); box-shadow:0 2px 12px #08213425; }
+    header .nav { height:58px; max-width:1120px; padding:0 16px; border:1px solid #ffffff3d; border-radius:999px; background:#ffffff20; box-shadow:inset 0 1px #ffffff30; backdrop-filter:blur(14px); }
+    header .brand { color:white; }
+    header .brand img { width:42px; height:42px; background:white; border-radius:50%; padding:2px; }
+    header .navlinks { gap:25px; color:#f7fbff; font-size:12px; }
+    header .navlinks a:hover { color:var(--lime); }
+    header .primary { background:linear-gradient(110deg,#ddff55,#bdf336); }
+    .hero { background:radial-gradient(circle at 88% 18%,#d8fa8d66 0,transparent 28%),linear-gradient(145deg,#fbfcf8 15%,#eff6e7 100%); border-radius:0 0 34px 34px; }
+    @media (max-width:850px) { header { padding:8px 0; } header .nav { height:54px; margin:0 12px; padding:0 12px; } header .brand { font-size:15px; } header .brand img { width:37px; height:37px; } }
     @media (max-width: 540px) { .impact-image { height:auto; aspect-ratio:16 / 10; background-size:contain; background-repeat:no-repeat; background-color:var(--forest); background-position:center; } .impact-copy { left:20px; bottom:18px; font-size:12px; } .watermark { font-size:clamp(2rem,13vw,3.3rem); } .hero h1 { font-size:clamp(2.5rem,12vw,3.35rem); line-height:1.07; } .hero p { font-size:1rem; } }
   </style>
 </head>
