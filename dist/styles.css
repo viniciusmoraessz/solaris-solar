@@ -1265,6 +1265,11 @@ header {
     padding-top: 92px;
   }
 
+  #solucoes.solutions.shell {
+    padding-left: clamp(20px, 5vw, 40px);
+    padding-right: clamp(20px, 5vw, 40px);
+  }
+
   .solutions .section-head {
     display: grid;
     grid-template-columns: 1fr;
@@ -1426,6 +1431,11 @@ header {
 
 /* Refinamento dos icones e respiro dos cards em telas estreitas. */
 @media (max-width: 540px) {
+  .solutions.shell {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
   .floating {
     left: 18px;
     bottom: 18px;
