@@ -182,28 +182,60 @@ a {
   bottom: 23px;
   left: 23px;
   background: #ffffffeb;
-  padding: 14px 17px;
-  border-radius: 15px;
+  max-width: min(360px, calc(100% - 46px));
+  padding: 16px 18px;
+  border-radius: 18px;
   display: flex;
-  gap: 12px;
+  gap: 14px;
   align-items: center;
+  box-shadow: 0 18px 45px rgba(13, 46, 32, 0.16);
 }
 .floating b {
   display: block;
   font-family: Sora, sans-serif;
-  font-size: 20px;
+  font-size: clamp(18px, 1.55vw, 22px);
+  line-height: 1.08;
 }
 .floating small {
   color: var(--muted);
+  display: block;
+  margin-top: 4px;
 }
 .sun-dot {
   background: var(--lime);
   width: 44px;
   height: 44px;
   border-radius: 13px;
+  flex: 0 0 44px;
   display: grid;
   place-items: center;
-  font-size: 20px;
+  position: relative;
+}
+.sun-dot:before,
+.sun-dot:after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+}
+.sun-dot:before {
+  width: 12px;
+  height: 12px;
+  background: var(--forest);
+  box-shadow:
+    0 -13px 0 -5px var(--forest),
+    0 13px 0 -5px var(--forest),
+    13px 0 0 -5px var(--forest),
+    -13px 0 0 -5px var(--forest),
+    9px 9px 0 -5.5px var(--forest),
+    -9px -9px 0 -5.5px var(--forest),
+    9px -9px 0 -5.5px var(--forest),
+    -9px 9px 0 -5.5px var(--forest);
+}
+.sun-dot:after {
+  width: 22px;
+  height: 22px;
+  border: 1.7px solid var(--forest);
+  opacity: 0.18;
 }
 .trust {
   background: #fff;
@@ -273,7 +305,126 @@ a {
   border: 0;
 }
 .ico {
-  font-size: 22px;
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  color: var(--forest);
+  background: #edfad0;
+}
+.feature .ico {
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: 1px solid rgba(15, 46, 29, 0.18);
+}
+.ico:before,
+.ico:after {
+  content: "";
+  position: absolute;
+  box-sizing: border-box;
+}
+.ico-home:before {
+  width: 15px;
+  height: 13px;
+  border: 2px solid currentColor;
+  border-top: 0;
+  border-radius: 2px;
+  bottom: 8px;
+}
+.ico-home:after {
+  width: 13px;
+  height: 13px;
+  border-left: 2px solid currentColor;
+  border-top: 2px solid currentColor;
+  transform: rotate(45deg);
+  top: 7px;
+}
+.ico-building:before {
+  width: 16px;
+  height: 19px;
+  border: 2px solid currentColor;
+  border-radius: 2px;
+}
+.ico-building:after {
+  width: 2px;
+  height: 2px;
+  background: currentColor;
+  box-shadow:
+    -5px -5px 0 currentColor,
+    0 -5px 0 currentColor,
+    5px -5px 0 currentColor,
+    -5px 0 0 currentColor,
+    5px 0 0 currentColor,
+    -5px 5px 0 currentColor,
+    0 5px 0 currentColor,
+    5px 5px 0 currentColor;
+}
+.ico-monitor:before {
+  width: 17px;
+  height: 17px;
+  border: 2px solid currentColor;
+  border-radius: 999px;
+}
+.ico-monitor:after {
+  width: 7px;
+  height: 7px;
+  background: var(--lime);
+  border: 1.5px solid currentColor;
+  border-radius: 999px;
+}
+.ico-plan:before {
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-radius: 999px;
+}
+.ico-plan:after {
+  width: 22px;
+  height: 22px;
+  border-top: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  border-radius: 999px;
+}
+.ico-install:before {
+  width: 18px;
+  height: 10px;
+  border: 2px solid currentColor;
+  border-top: 0;
+  transform: rotate(-18deg);
+}
+.ico-install:after {
+  width: 9px;
+  height: 2px;
+  background: currentColor;
+  transform: translate(6px, -7px) rotate(40deg);
+}
+.ico-finance:before {
+  width: 18px;
+  height: 18px;
+  border: 2px solid currentColor;
+  border-radius: 3px;
+}
+.ico-finance:after {
+  width: 8px;
+  height: 8px;
+  border: 2px solid currentColor;
+  border-radius: 999px;
+}
+.ico-care:before {
+  width: 17px;
+  height: 17px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: rotate(-2deg);
+}
+.ico-care:after {
+  width: 15px;
+  height: 2px;
+  background: currentColor;
+  transform: rotate(-45deg) translate(-2px, 2px);
 }
 .feature h3 {
   font-size: 15px;
@@ -408,7 +559,7 @@ a {
   background: #fff;
   border: 1px solid #e9ede8;
   border-radius: 17px;
-  padding: 24px;
+  padding: 26px;
   min-height: 220px;
   transition: 0.25s;
 }
@@ -418,15 +569,14 @@ a {
 }
 .solution .ico {
   background: #edfad0;
-  width: 42px;
-  height: 42px;
-  display: grid;
-  place-items: center;
-  border-radius: 11px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
 }
 .solution h3 {
   font-size: 18px;
-  margin: 18px 0 9px;
+  margin: 22px 0 10px;
+  line-height: 1.18;
 }
 .solution p {
   font-size: 14px;
@@ -1249,6 +1399,60 @@ header {
   .cta.shell {
     padding-top: 50px;
     padding-bottom: 54px;
+  }
+}
+
+/* Refinamento dos icones e respiro dos cards em telas estreitas. */
+@media (max-width: 540px) {
+  .floating {
+    left: 18px;
+    bottom: 18px;
+    max-width: calc(100% - 36px);
+    padding: 14px 15px;
+    gap: 12px;
+  }
+
+  .floating b {
+    font-size: 18px;
+  }
+
+  .floating small {
+    font-size: 13px;
+  }
+
+  .sun-dot {
+    width: 42px;
+    height: 42px;
+    flex-basis: 42px;
+  }
+
+  .feature {
+    padding: 20px 16px 22px;
+  }
+
+  .feature h3 {
+    margin-top: 13px;
+    line-height: 1.18;
+  }
+
+  .solution {
+    padding: 26px 20px 28px;
+  }
+
+  .solution .ico {
+    width: 43px;
+    height: 43px;
+    margin-bottom: 22px;
+  }
+
+  .solution h3 {
+    margin: 0 0 14px;
+    line-height: 1.2;
+  }
+
+  .solution p {
+    line-height: 1.58;
+    margin: 0;
   }
 }
 
